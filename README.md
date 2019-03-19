@@ -1,6 +1,25 @@
 # ROMAN
 
-**TODO: Add description**
+### Write a function to convert from normal numbers to Roman Numerals. Handle up to 3000
+
+### Write a function to convert in the other direction, ie numeral to digit
+
+## Conversions:
+### I - 1
+Means 1
+
+### V - 5
+Placing I in front of the V — or placing any smaller number in front of any larger number — indicates subtraction.
+
+### X - 10
+
+### L - 50
+
+### C - 100
+
+### D - 500
+
+### M - 1000
 
 ## Installation
 
