@@ -1,5 +1,8 @@
 defmodule ROMAN_2 do
   def roman_numeral_converter(integer) do
-    String.duplicate("I", integer)
+    cond do
+      integer < 4 -> String.duplicate("I", integer)
+      integer == 4 -> "IV"
+    end
   end
 end
