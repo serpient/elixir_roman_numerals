@@ -1,5 +1,5 @@
 defmodule ROMANTEST_2 do
-  use ExUnit.case
+  use ExUnit.Case
   doctest ROMAN_2
 
   test 1 do
