@@ -30,6 +30,10 @@ defmodule ROMANTest do
     assert ROMAN.roman_numeral(1000) == "M"
   end
 
+  test "converts 2 to roman" do
+    assert ROMAN.roman_numeral(2) == "II"
+  end
+
   test "converts 3 to roman" do
     assert ROMAN.roman_numeral(3) == "III"
   end
@@ -48,5 +52,9 @@ defmodule ROMANTest do
 
   test "converts 8 to roman" do
     assert ROMAN.roman_numeral(8) == "VIII"
+  end
+
+  test "converts 9 to roman" do
+    assert ROMAN.roman_numeral(9) == "IX"
   end
 end

@@ -11,6 +11,10 @@ defmodule ROMAN do
     }
   end
 
+  def retrieve_roman_numeral(key) do
+    Map.fetch!(roman_numeral_map(), key)
+  end
+
   def find_smallest_match(integer) when integer == 1 do
     1
   end
@@ -28,28 +32,27 @@ defmodule ROMAN do
 
   def convert_to_roman_numeral(smallest, num_of_repeated_values)
       when num_of_repeated_values > 3.0 do
-    next_largest_roman_numeral =
-      Map.fetch!(roman_numeral_map(), find_next_largest_match(smallest))
+    next_largest_roman_numeral = retrieve_roman_numeral(find_next_largest_match(smallest))
 
     [next_largest_roman_numeral]
-    |> List.insert_at(0, Map.fetch!(roman_numeral_map(), smallest))
+    |> List.insert_at(0, retrieve_roman_numeral(smallest))
     |> List.to_string()
   end
 
   def convert_to_roman_numeral(smallest, num_of_repeated_values)
       when num_of_repeated_values <= 3.0 and smallest == 1 do
-    Map.fetch!(roman_numeral_map(), smallest)
+    retrieve_roman_numeral(smallest)
     |> String.duplicate(trunc(num_of_repeated_values))
   end
 
   def convert_to_roman_numeral(smallest, num_of_repeated_values)
       when num_of_repeated_values <= 3.0 do
-    string_lower_than_smallest = Map.fetch!(roman_numeral_map(), find_smallest_match(smallest))
+    string_lower_than_smallest = retrieve_roman_numeral(find_smallest_match(smallest))
 
     duplicated_string =
       String.duplicate(string_lower_than_smallest, trunc(num_of_repeated_values))
 
-    [Map.fetch!(roman_numeral_map(), smallest)]
+    [retrieve_roman_numeral(smallest)]
     |> List.insert_at(1, duplicated_string)
     |> List.to_string()
   end
