@@ -21,7 +21,7 @@ defmodule ROMAN do
   end
 
   def parse_number(integer) do
-    range_type =
+    range_multiplier =
       cond do
         integer < 10 -> 1
         integer <= 100 -> 10
@@ -29,20 +29,20 @@ defmodule ROMAN do
         integer > 1000 -> 1000
       end
 
-    range = get_range(range_type)
-    base_numeral = Enum.at(range, 0)
-    middle_numeral = Enum.at(range, 1)
-    top_numeral = Enum.at(range, 2)
+    range = get_range(range_multiplier)
+    base_one = Enum.at(range, 0)
+    base_five = Enum.at(range, 1)
+    base_ten = Enum.at(range, 2)
 
     cond do
       integer == 0 -> ""
-      integer == 1 * range_type -> base_numeral
-      integer <= 3 * range_type -> String.duplicate(base_numeral, trunc(integer / range_type))
-      integer == 4 * range_type -> base_numeral <> middle_numeral
-      integer == 5 * range_type -> middle_numeral
-      integer <= 8 * range_type -> middle_numeral <> String.duplicate(base_numeral, trunc(integer / range_type) - 5)
-      integer == 9 * range_type -> base_numeral <> top_numeral
-      integer == 10 * range_type -> top_numeral
+      integer == 1 * range_multiplier -> base_one
+      integer <= 3 * range_multiplier -> String.duplicate(base_one, trunc(integer / range_multiplier))
+      integer == 4 * range_multiplier -> base_one <> base_five
+      integer == 5 * range_multiplier -> base_five
+      integer <= 8 * range_multiplier -> base_five <> String.duplicate(base_one, trunc(integer / range_multiplier) - 5)
+      integer == 9 * range_multiplier -> base_one <> base_ten
+      integer == 10 * range_multiplier -> base_ten
     end
 
   end
