@@ -25,7 +25,7 @@ defmodule ROMAN do
       cond do
         integer < 10 -> 1
         integer <= 100 -> 10
-        integer > 100 -> 100
+        integer > 100 and integer <= 1000 -> 100
         integer > 1000 -> 1000
       end
 
@@ -43,7 +43,6 @@ defmodule ROMAN do
       integer <= 8 * range_type -> middle_numeral <> String.duplicate(base_numeral, trunc(integer / range_type) - 5)
       integer == 9 * range_type -> base_numeral <> top_numeral
       integer == 10 * range_type -> top_numeral
-      integer > 10 * range_type -> ""
     end
 
   end

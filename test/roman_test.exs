@@ -33,7 +33,8 @@ defmodule ROMANTest do
     [1000, "M"],
     [1024, "MXXIV"],
     [2000, "MM"],
-    # [3000, "MMM"],
+    [2942, "MMCMXLII"],
+    [3000, "MMM"]
   ]
 
   for [number, converted_value] <- test_cases do
