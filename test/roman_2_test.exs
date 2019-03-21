@@ -21,4 +21,8 @@ defmodule ROMANTEST_2 do
   test 5 do
     assert ROMAN_2.roman_numeral_converter(5) == "V"
   end
+
+  test 6 do
+    assert ROMAN_2.roman_numeral_converter(6) == "VI"
+  end
 end
