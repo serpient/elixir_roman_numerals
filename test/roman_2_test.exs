@@ -2,31 +2,23 @@ defmodule ROMANTEST_2 do
   use ExUnit.Case
   doctest ROMAN_2
 
-  test 1 do
-    assert ROMAN_2.roman_numeral_converter(1) == "I"
+  test_cases = %{
+    1 => "I",
+    2 => "II",
+    3 => "III",
+    4 => "IV",
+    5 => "V",
+    6 => "VI",
+    7 => "VII",
+  }
+
+  for {value, converted_value} <- test_cases do
+    @value value
+    @converted_value converted_value
+    @function_result ROMAN_2.roman_numeral_converter(@value)
+    test @value do
+      assert @function_result == @converted_value
+    end
   end
 
-  test 2 do
-    assert ROMAN_2.roman_numeral_converter(2) == "II"
-  end
-
-  test 3 do
-    assert ROMAN_2.roman_numeral_converter(3) == "III"
-  end
-
-  test 4 do
-    assert ROMAN_2.roman_numeral_converter(4) == "IV"
-  end
-
-  test 5 do
-    assert ROMAN_2.roman_numeral_converter(5) == "V"
-  end
-
-  test 6 do
-    assert ROMAN_2.roman_numeral_converter(6) == "VI"
-  end
-
-  test 7 do
-    assert ROMAN_2.roman_numeral_converter(7) == "VII"
-  end
 end
