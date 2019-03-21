@@ -2,60 +2,38 @@ defmodule ROMANTest do
   use ExUnit.Case
   doctest ROMAN
 
-  test "converts 1 to roman" do
-    assert ROMAN.roman_numeral_converter(1) == "I"
+  test_cases = [
+    [1, "I"],
+    [2, "II"],
+    [3, "III"],
+    [4, "IV"],
+    [5, "V"],
+    [6, "VI"],
+    [9, "IX"],
+    [10, "X"],
+    [11, "XI"],
+    [12, "XII"],
+    [13, "XIII"],
+    [14, "XIV"],
+    [19, "XIX"],
+    [27, "XXVII"],
+    [29, "XXIX"],
+    [48, "XLVIII"],
+  ]
+
+  for [number, converted_value] <- test_cases do
+    @number number
+    @converted_value converted_value
+    @function ROMAN.roman_numeral_converter(@number)
+    test "#{number}" do
+      # result = apply(@function, [@number])
+      assert @function == @converted_value
+    end
   end
+end
 
-  test "converts 2 to roman" do
-    assert ROMAN.roman_numeral_converter(2) == "II"
-  end
-
-  # test "converts 3 to roman" do
-  #   assert ROMAN.roman_numeral_converter(3) == "III"
-  # end
-
-  # test "converts 4 to roman" do
-  #   assert ROMAN.roman_numeral_converter(4) == "IV"
-  # end
-
-  # test "converts 5 to roman" do
-  #   assert ROMAN.roman_numeral_converter(5) == "V"
-  # end
-
-  # test "converts 6 to roman" do
-  #   assert ROMAN.roman_numeral_converter(6) == "VI"
-  # end
-
-  # test "converts 7 to roman" do
-  #   assert ROMAN.roman_numeral_converter(7) == "VII"
-  # end
-
-  # test "converts 8 to roman" do
-  #   assert ROMAN.roman_numeral_converter(8) == "VIII"
-  # end
-
-  # test "converts 9 to roman" do
-  #   assert ROMAN.roman_numeral_converter(9) == "IX"
-  # end
-
-  # test "converts 10 to roman" do
-  #   assert ROMAN.roman_numeral_converter(10) == "X"
-  # end
-
-  # test "converts 11 to roman" do
-  #   assert ROMAN.roman_numeral_converter(11) == "XI"
-  # end
-
-  # test "converts 14 to roman" do
-  #   assert ROMAN.roman_numeral_converter(14) == "XIV"
-  # end
-
-  # test "converts 19 to roman" do
-  #   assert ROMAN.roman_numeral_converter(19) == "XIX"
-  # end
-
-  # test "converts 20 to roman" do
-  #   assert ROMAN.roman_numeral_converter(20) == "XX"
+  # test "converts 49 to roman" do
+  #   assert ROMAN.roman_numeral_converter(49) == "XLIX"
   # end
 
   # test "converts 50 to roman" do
@@ -73,5 +51,3 @@ defmodule ROMANTest do
   # test "converts 1000 to roman" do
   #   assert ROMAN.roman_numeral_converter(1000) == "M"
   # end
-
-end
