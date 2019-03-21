@@ -2,8 +2,6 @@
 
 ### Write a function to convert from normal numbers to Roman Numerals. Handle up to 3000
 
-### Write a function to convert in the other direction, ie numeral to digit
-
 ## Conversions:
 ### I - 1
 Means 1
