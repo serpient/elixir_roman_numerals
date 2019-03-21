@@ -29,10 +29,7 @@ defmodule ROMAN do
         integer > 1000 -> 1000
       end
 
-    range = get_range(range_multiplier)
-    base_one = Enum.at(range, 0)
-    base_five = Enum.at(range, 1)
-    base_ten = Enum.at(range, 2)
+    [base_one, base_five, base_ten] = get_range(range_multiplier)
 
     cond do
       integer == 0 -> ""
