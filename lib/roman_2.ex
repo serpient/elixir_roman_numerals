@@ -3,6 +3,7 @@ defmodule ROMAN_2 do
     cond do
       integer < 4 -> String.duplicate("I", integer)
       integer == 4 -> "IV"
+      integer == 5 -> "V"
     end
   end
 end
