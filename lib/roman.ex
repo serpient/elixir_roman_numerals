@@ -25,7 +25,7 @@ defmodule ROMAN do
       cond do
         integer < 10 -> 1
         integer <= 100 -> 10
-        integer > 100 and integer <= 1000 -> 100
+        integer <= 1000 -> 100
         integer > 1000 -> 1000
       end
 
