@@ -19,6 +19,21 @@ defmodule ROMANTest do
     [27, "XXVII"],
     [29, "XXIX"],
     [48, "XLVIII"],
+    [50, "L"],
+    [59, "LIX"],
+    [88, "LXXXVIII"],
+    [93, "XCIII"],
+    [100, "C"],
+    [141, "CXLI"],
+    [163, "CLXIII"],
+    [402, "CDII"],
+    [500, "D"],
+    [575, "DLXXV"],
+    [911, "CMXI"],
+    [1000, "M"],
+    [1024, "MXXIV"],
+    [2000, "MM"],
+    # [3000, "MMM"],
   ]
 
   for [number, converted_value] <- test_cases do
@@ -31,23 +46,3 @@ defmodule ROMANTest do
     end
   end
 end
-
-  # test "converts 49 to roman" do
-  #   assert ROMAN.roman_numeral_converter(49) == "XLIX"
-  # end
-
-  # test "converts 50 to roman" do
-  #   assert ROMAN.roman_numeral_converter(50) == "L"
-  # end
-
-  # test "converts 100 to roman" do
-  #   assert ROMAN.roman_numeral_converter(100) == "C"
-  # end
-
-  # test "converts 500 to roman" do
-  #   assert ROMAN.roman_numeral_converter(500) == "D"
-  # end
-
-  # test "converts 1000 to roman" do
-  #   assert ROMAN.roman_numeral_converter(1000) == "M"
-  # end
