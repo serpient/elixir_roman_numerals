@@ -10,6 +10,7 @@ defmodule ROMANTEST_2 do
     5 => "V",
     6 => "VI",
     7 => "VII",
+    8 => "VIII"
   }
 
   for {value, converted_value} <- test_cases do
