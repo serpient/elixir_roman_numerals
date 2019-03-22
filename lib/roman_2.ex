@@ -5,6 +5,7 @@ defmodule ROMAN_2 do
       integer == 4 -> "IV"
       integer == 5 -> "V"
       integer <= 8 -> "V" <> String.duplicate("I", integer - 5)
+      integer == 9 -> "IX"
     end
   end
 end
