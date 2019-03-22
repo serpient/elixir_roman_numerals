@@ -24,6 +24,12 @@ defmodule ROMANTEST_2 do
     49 => "XLIX",
     86 => "LXXXVI",
     100 => "C",
+    149 => "CXLIX",
+    268 => "CCLXVIII",
+    489 => "CDLXXXIX",
+    887 => "DCCCLXXXVII",
+    1000 => "M",
+    2000 => "MM"
   }
 
   for {value, converted_value} <- test_cases do
