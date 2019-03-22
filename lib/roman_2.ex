@@ -4,14 +4,19 @@ defmodule ROMAN_2 do
       integer < 10 -> 1
       integer < 100 -> 10
     end
+    ranges = %{
+      1 => ["I", "V", "X"],
+      10 => ["X", "L", "C"],
+    }
+    [base_one, base_five, base_ten] = ranges[multiplier]
     divided_integer = trunc(integer / multiplier)
     cond do
-      integer <= 3 * multiplier -> String.duplicate("I", divided_integer)
-      integer == 4 * multiplier -> "IV"
-      integer == 5 * multiplier -> "V"
-      integer <= 8 * multiplier -> "V" <> String.duplicate("I", divided_integer - 5)
-      integer == 9 * multiplier -> "IX"
-      integer == 10 * multiplier -> "X"
+      integer <= 3 * multiplier -> String.duplicate(base_one, divided_integer)
+      integer == 4 * multiplier -> base_one <> base_five
+      integer == 5 * multiplier -> base_five
+      integer <= 8 * multiplier -> base_five <> String.duplicate(base_one, divided_integer - 5)
+      integer == 9 * multiplier -> base_one <> base_ten
+      integer == 10 * multiplier -> base_ten
     end
   end
 
