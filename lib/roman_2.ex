@@ -12,8 +12,6 @@ defmodule ROMAN_2 do
       integer <= 8 * multiplier -> "V" <> String.duplicate("I", divided_integer - 5)
       integer == 9 * multiplier -> "IX"
       integer == 10 * multiplier -> "X"
-      integer <= 39 * multiplier -> "X" <> convert_integer(divided_integer - 10)
-      integer == 40 * multiplier -> "XL"
     end
   end
 
