@@ -3,10 +3,12 @@ defmodule ROMAN_2 do
     multiplier = cond do
       integer < 10 -> 1
       integer < 100 -> 10
+      integer >= 100 -> 100
     end
     ranges = %{
       1 => ["I", "V", "X"],
       10 => ["X", "L", "C"],
+      100 => ["C", "D", "M"]
     }
     [base_one, base_five, base_ten] = ranges[multiplier]
     divided_integer = trunc(integer / multiplier)
