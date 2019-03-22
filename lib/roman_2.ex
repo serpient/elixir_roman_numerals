@@ -1,27 +1,26 @@
 defmodule ROMAN_2 do
   def convert_integer(integer) do
+    multiplier = cond do
+      integer < 10 -> 1
+      integer < 100 -> 100
+      # integer >= 100 -> 1000
+    end
     cond do
-      integer < 4 -> String.duplicate("I", integer)
-      integer == 4 -> "IV"
-      integer == 5 -> "V"
-      integer <= 8 -> "V" <> String.duplicate("I", integer - 5)
-      integer == 9 -> "IX"
-      integer == 10 -> "X"
+      integer < 4 * multiplier -> String.duplicate("I", integer)
+      integer == 4 * multiplier -> "IV"
+      integer == 5 * multiplier -> "V"
+      integer <= 8 * multiplier -> "V" <> String.duplicate("I", integer - 5)
+      integer == 9 * multiplier -> "IX"
+      integer == 10 * multiplier -> "X"
+      integer <= 39 * multiplier -> "X" <> convert_integer(integer - 10)
+      integer == 40 * multiplier -> "XL"
     end
   end
   def roman_numeral_converter(integer) do
-    # Integer.digits(integer)
-    # |> Enum.with_index
-    # |> Enum.map(fn {value, index} ->  convert_integer() end)
-    cond do
-      integer < 4 -> String.duplicate("I", integer)
-      integer == 4 -> "IV"
-      integer == 5 -> "V"
-      integer <= 8 -> "V" <> String.duplicate("I", integer - 5)
-      integer == 9 -> "IX"
-      integer == 10 -> "X"
-      integer < 39 -> "X" <> roman_numeral_converter(integer - 10)
-      integer == 40 => "XL"
-    end
+    length = Integer.to_string(integer) |> String.length
+    Integer.digits(integer)
+    |> Enum.with_index
+    |> Enum.map(fn {value, index} -> convert_integer(value * trunc(:math.pow(10, length - index))) end)
+    |> Enum.join
   end
 end

@@ -18,6 +18,7 @@ defmodule ROMANTEST_2 do
     13 => "XIII",
     15 => "XV",
     20 => "XX",
+    39 => "XXXIX",
     40 => "XL"
   }
 
